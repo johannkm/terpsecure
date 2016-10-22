@@ -1,16 +1,12 @@
 #!/bin/sh
 
 # Install necessary packages
-#sudo apt-get update
-#sudo apt-get install mysql
-#sudo apt-get install php5 php5-mysql
-#sudo apt-get install python3-all
+sudo apt-get update
+sudo apt-get install mysql
+sudo apt-get install php5 php5-mysql
+sudo apt-get install python3-all
 
-#sudo pip-3.2 install flask
-
-
-# ?????????
-git ?
+sudo pip-3.2 install flask
 
 
 # Copy website files to www root directory for the web server
