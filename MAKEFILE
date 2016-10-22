@@ -10,7 +10,7 @@
 
 
 # ?????????
-git ?
+#git ?
 
 
 # Copy website files to www root directory for the web server
@@ -22,5 +22,5 @@ sudo cp -R -v www /var/
 
 
 # Setup MYSQL
-mysql_secure_installation
-sudo mysql_install_db
+#mysql_secure_installation
+#sudo mysql_install_db
