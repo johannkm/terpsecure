@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Sets up the production (release) environment
+
+if [ "$#" -gt 0 ]
+then 
+if [ "$1" = "--help" ]
+then
+	echo "Sets up the production (release) environment."
+	echo ""
+	echo "		--purge-old	Deletes all files currently in the root web "
+	echo "				  directory before copying over the files from "
+	echo "				  the local git repository"
+	echo "		--help		Displays this help text and exits"
+	echo ""
+	exit 0
+
+elif [ "$#" -gt 0 ] && [ "$1" = "--purge-old" ]
+then
+	sudo rm -r /var/www/*
+else
+	echo "Unknown option. Try --help."
+fi
+fi
+
+
+# Copy website files to www root directory for the web server
+sudo cp -R -v www /var/
+
+
+# Set web server root directory path
+#TODO set server web file directory path to /var/www
+
+
+#TODO other configs??
