@@ -8,10 +8,10 @@ if [ "$1" = "--help" ]
 then
 	echo "Sets up the production (release) environment."
 	echo ""
-	echo "		--purge-old	Deletes all files currently in the root web "
+	echo "		--purge-old	Delete all files currently in the root web "
 	echo "				  directory before copying over the files from "
 	echo "				  the local git repository"
-	echo "		--help		Displays this help text and exits"
+	echo "		--help		Display this help text and exits"
 	echo ""
 	exit 0
 
@@ -20,6 +20,7 @@ then
 	sudo rm -r /var/www/*
 else
 	echo "Unknown option. Try --help."
+	exit 0
 fi
 fi
 

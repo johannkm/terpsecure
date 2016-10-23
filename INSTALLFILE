@@ -9,10 +9,6 @@ sudo apt-get install python3-all
 sudo pip-3.2 install flask
 
 
-# Copy website files to www root directory for the web server
-sudo cp -R -v www /var/
-
-
 # Download reactjs tutorial
 #git clone http://github.com/reactjs/react-tutorial.git
 
