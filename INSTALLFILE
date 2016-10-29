@@ -2,11 +2,21 @@
 
 # Install necessary packages
 sudo apt-get update
-sudo apt-get install mysql
+
 sudo apt-get install php5 php5-mysql
 sudo apt-get install python3-all
-
+sudo apt-get install python3-flask
 sudo pip-3.2 install flask
+
+
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+
+#sudo apt-get install mysql
+sudo apt-get install mysql-server
+sudo apt-get install mysql-client
+#sudo apt-get install mysql-server-5.5
+#sudo apt-get install mysql-client-5.5
 
 
 # Download reactjs tutorial
@@ -15,4 +25,4 @@ sudo pip-3.2 install flask
 
 # Setup MYSQL
 mysql_secure_installation
-sudo mysql_install_db
+??? mysqld --initialize
