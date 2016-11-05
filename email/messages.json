@@ -1,0 +1,14 @@
+{
+    "messages": [{
+        "_id": "57cf75cea73e494d8675ef91",
+        "sender": "Johann Miller",
+        "subject": "Hacking",
+        "content": "This is a test."
+    },
+    {
+        "_id": "12h124124g523hkjh2232h24",
+        "sender": "Bill Bob",
+        "subject": "Test",
+        "content": "This is another test."
+    }]
+}
