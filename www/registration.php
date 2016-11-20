@@ -20,46 +20,44 @@
 <?php
 if(isset($_POST['add']))
 {
-$dbhost = 'localhost:3036';
-$dbuser = 'root';
-$dbpass = 'Jessie was here';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
+	$dbhost = 'localhost:3036';
+	$dbuser = 'root';
+	$dbpass = 'Jessie was here';
+	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+	if(! $conn )
+	{
+  		die('Could not connect: ' . mysql_error());
+	}
+	
+	if(! get_magic_quotes_gpc() )
+	{
+		$username = addslashes ($_POST['username']);
+		$password = addslashes ($_POST['password']);
+	$email = addslashes ($_POST['email']);
+	}
+	else
+	{
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		$email = $_POST['email'];
+	}
+	
+	
+	$sql = "INSERT INTO accounts ".
+	       "(username, password, email) ".
+	       "VALUES ".
+	       "('$username','$password','$email')";
+	
+	mysql_select_db('TerpSecure');
+	
+	$retval = mysql_query( $sql, $conn );
+	if( ! $retval )
+	{
+		die('Could not enter data: ' . mysql_error());
+	}
+	
+	mysql_close($conn);
 }
-
-if(! get_magic_quotes_gpc() )
-{
-   $username = addslashes ($_POST['username']);
-   $password = addslashes ($_POST['password']);
-   $email = addslashes ($_POST['email']);
-}
-else
-{
-   $username = $_POST['username'];
-   $password = $_POST['password'];
-   $email = $_POST['email'];
-}
-
-
-$sql = "INSERT INTO accounts ".
-       "(username, password, email) ".
-       "VALUES ".
-       "('$username','$password','$email')";
-
-mysql_select_db('TerpSecure');
-
-$retval = mysql_query( $sql, $conn );
-if(! $retval )
-{
-  die('Could not enter data: ' . mysql_error());
-}
-echo "Entered data successfully\n";
-mysql_close($conn);
-}
-else
-{
 ?>
 
 
