@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+
+  
+
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ 
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <form class="form-signin" method="post" action="<?php_PHP_SELF ?>">
+      <h2 class="form-signin-heading">Register for T3rpsecure</h2>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Email" aria-describedby="basic-addon2">
+        <span class="input-group-addon" id="basic-addon2">@example.com</span>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"></span>
+        <input type="text" class="form-control" placeholder="Confirm Password" aria-describedby="basic-addon1">
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+
+      <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#myModal" type="submit">Register</button>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+      <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">You failed this module!</h4>
+          </div>
+          <div class="modal-body">
+            <p>This page was a fake registration page. Notice how the URL and the page are exactly the same
+            Now you've given away your information!
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+  </html>
