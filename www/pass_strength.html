@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta charset="utf-8">
+        <title>TerpSecure password check</title>
+        <style>
+            body {
+                padding: 40px;
+                position: relative;
+                font-family: sans-serif;
+                font-size: 1em;
+                font-weight: 300;
+            }
+            input {
+                font-family: sans-serif;
+                font-size: 1em;
+                font-weight: 300;
+                color: #888;
+                border: 1px solid #bbb;
+                border-radius: 3px;
+                padding: 0.25em 10px;
+                line-height: 1.5em;
+            }
+            label::after {
+                content: ":";
+            }
+            div {
+                margin-bottom: 10px;
+            }
+            .hsimp-time {
+                display: inline;
+                margin-left: 10px;
+            }
+            .hsimp-checks li {
+                list-style: none;
+            }
+            .hsimp-checks h2 {
+                font-size: 0.8em;
+                margin-bottom: 0;
+            }
+            .hsimp-checks p {
+                margin-top: 0;
+                font-size: 0.7em;
+            }
+        </style>
+        
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="hsimp.jquery.css">
+    </head>
+    <body>
+
+        <h3 align="center">Test your password security</h3>
+        <p align="center">Enter your password into the box, and see how secure your password is, and what you can do to improve it</p>
+        
+       
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1"></span>
+            <input type="password" id="password-1" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+        </div>
+        
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+        <script src="hsimp.jquery.min.js"></script>
+        <script>
+            jQuery(function ($) {
+                "use strict";
+                $("#password-1, #password-2").hsimp({
+                    calculationsPerSecond: 10e9, // 10 billion
+                    good: 31557600e9, // 1 billion years
+                    ok: 31557600e2  // 100 years
+                });
+            });
+        </script>
+    </body>
+</html>
