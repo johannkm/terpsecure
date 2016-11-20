@@ -1,0 +1,11 @@
+.list-group-item {
+  min-height: 100px;
+}
+
+.col-unread {
+  background: #eee;
+}
+
+.col-read {
+  background: #fff;
+}

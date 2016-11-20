@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>TerpSecure</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+	<div>
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">TerpSecure</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Email</a></li>
+					<li><a href="#">Hacks</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container">
+		<div class="">
+			<h1>TerpMail <span id="unread" class="badge"></span><b></h1>
+			<div id="column-wrap" class="row">
+				<div class="col-sm-6 main-left-col">
+					<div class="list-group" id="messages">
+					</div>
+				</div>
+				<div class="col-sm-6 main-right-col">
+					<div id='messDisplay' class="list-group"></div>
+				</div>
+			</div>
+			<!-- /.container -->
+		</div>
+	</div>
+
+	<script src="email.js"></script>
+	<link rel="stylesheet" type="text/css" href="emailstyle.css">
+
+</body>
+
+</html>
