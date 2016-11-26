@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sql_password="Jessie was here"
+
+DUMP_MYSQL=$(expect -c "
+
+set timeout 3
+spawn mysqldump --all-tablespaces -u root -p TerpSecure > database_dump.dat
+
+expect \"password:\" {
+	send \"$sql_password\r\"
+}
+
+expect eof
+")
+
+echo "${DUMP_MYSQL}"
+
+
+
+if [ ! -e "./database_TerpSecure.dat" ]
+then
+	echo "Error exporting MYSQL database."
+	exit 1
+fi

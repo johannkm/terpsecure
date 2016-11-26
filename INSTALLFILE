@@ -1,28 +1,147 @@
-#!/bin/sh
+#!/bin/bash
 
 # Install necessary packages
-sudo apt-get update
-
-sudo apt-get install apache2
-sudo apt-get install libapache2-mod-php5
-sudo apt-get install php5 php5-mysql
-#sudo apt-get install python3-all
-#sudo apt-get install python3-flask
-#sudo pip-3.2 install flask
+				echo LOLOLOLOLOLOL	#sudo apt-get update
 
 
-sudo apt-get install mysql-server
-sudo apt-get install mysql-client
+# Install apache2
+echo "Installing apache2..."
 
-#sudo apt-get install mysql
-#sudo apt-get install mysql-server-5.5
-#sudo apt-get install mysql-client-5.5
+results=`sudo apt-get install --yes apache2`
+
+# Ensure apache2 correctly installed before continuing
+if [ `echo $?` -ne 0 ]
+then
+	echo "Failed to install apache2"
+	exit 2
+fi
+
+echo "$results"
+
+# Perform initial apache2 configuration setup
+	#if [ `echo "$results" | grep "[0-9]* newly installed" -o | cut -d" " -f1` -ne 0 ]; then	#Only perform setup if newly installed
+
+sudo cp -r -v apache2.d/* /etc/apache2/
+./INIT_PRODUCTION_ENV
+
+	#fi
 
 
-# Download reactjs tutorial
-#git clone http://github.com/reactjs/react-tutorial.git
+# Install php
+echo "Installing php..."
+
+sudo apt-get install --yes php7.0
+
+if [ `echo $?` -ne 100 ]	#If php successfully installed
+then
+	sudo apt-get install --yes php7.0-mysql
+	sudo apt-get install --yes php7.0-mcrypt
+	sudo apt-get install --yes libapache2-mod-php7.0
+
+else
+
+sudo apt-get install --yes php5
+
+if [ `echo $?` -ne 100 ]	#If php successfully installed
+then
+	sudo apt-get install --yes php5-mysql
+	sudo apt-get install --yes php5-mcrypt
+	sudo apt-get install --yes libapache2-mod-php5
+else
+
+#Try to install php dependencies generically
+sudo apt-get install --yes php
+
+if [ `echo $?` -ne 100 ]	#If php successfully installed
+then
+	sudo apt-get install --yes php-mysql
+	sudo apt-get install --yes php-mcrypt
+	sudo apt-get install --yes libapache2-mod-php
+
+else
+	echo "Failed to install php"
+	exit 100
+fi
+fi
+fi
+
+
+#sudo apt-get install --yes python3-all
+#sudo apt-get install --yes python3-flask
+#sudo pip-3.2 install --yes flask
+
+
+# Install MYSQL
+echo "Installing mysql..."
+
+sudo apt-get install --yes mysql-server
+sudo apt-get install --yes mysql-client
+
 
 
 # Setup MYSQL
-mysql_secure_installation
+PURGE_EXPECT_WHEN_DONE=0
+
+CURRENT_MYSQL_PASSWORD="Jessie was here"
+NEW_MYSQL_PASSWORD="Jessie was here"
+
+# Check if expect package installed
+if [ $(dpkg-query -W -f='${Status}' expect 2>/dev/null | grep -c "ok installed") -eq 0 ]
+then
+	sudo apt-get install --yes expect
+fi
+
+
+SECURE_MYSQL=$(expect -c "
+set timeout 3
+spawn mysql_secure_installation
+
+expect \"Enter password for user root:\" {
+	send \"$CURRENT_MYSQL_PASSWORD\r\"
+}
+expect \"Enter current password for root (enter for none):\" {
+	send \"$CURRENT_MYSQL_PASSWORD\r\"
+}
+
+expect \"Change the password for root ?\" {
+	send \"n\r\"
+}
+expect \"Change the root password?\" {
+	send \"n\r\"
+}
+expect \"New password:\" {
+	send \"$NEW_MYSQL_PASSWORD\r\"
+}
+expect \"Re-enter new password:\" {
+	send \"$NEW_MYSQL_PASSWORD\r\"
+}
+
+expect \"Remove anonymous users?\" {
+	send \"y\r\"
+}
+expect \"Disallow root login remotely?\" {
+	send \"y\r\"
+}
+expect \"Remove test database and access to it?\" {
+	send \"y\r\"
+}
+expect \"Reload privilege tables now?\" {
+	send \"y\r\"
+}
+
+expect eof
+")
+
+
+# Execution mysql_secure_installation
+echo "${SECURE_MYSQL}"
+
+
+if [ $PURGE_EXPECT_WHEN_DONE -eq 1 ]; then
+    sudo apt-get purge --yes expect	#Uninstall expect package
+fi
+
+
+
+
 #??? mysqld --initialize

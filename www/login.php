@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Log in to TerpSecure</title>
+	
+	
+	<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+	
+	<link rel="stylesheet" href="css/signin.css">
+</head>
+
+
+<body>
+
+
+<?php
+if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
+{
+	$dbhost = 'localhost:3036';
+	$dbuser = 'root';
+	$dbpass = 'Jessie was here';
+	
+	$err_usernameOrEmail = "";
+	$err_password = "";
+	
+	$usernameOrEmail = "";
+	$username = "";
+	$email = "";
+	$password = "";
+	
+	
+	if( empty($_POST["usernameOrEmail"]) ) {
+		$err_usernameOrEmail = "Username or email is required";
+	}
+	else {
+		$usernameOrEmail = cleanInput($_POST["usernameOrEmail"]);
+		
+		//If the input is not a valid email
+		if( !filter_var($usernameOrEmail, FILTER_VALIDATE_EMAIL) ) {
+			
+			//If input is not a valid username
+			if( !preg_match("/^[a-zA-Z0-9]*$/", $usernameOrEmail) ) {
+				$err_usernameOrEmail = "You must enter a valid username or email";
+			}
+			//Else the user entered their username
+			else{
+				$username = $usernameOrEmail;
+			}
+		}
+		//Else the user entered their email
+		else{
+			$email = $usernameOrEmail;
+		}
+	}
+	
+	if( empty($_POST["password"]) ) {
+		$err_password = "Password is required";
+	}
+	else {
+		$password = cleanInput($_POST["password"]);
+        }
+	
+	
+	//If there were no errors, query database
+	if( empty($err_usernameOrEmail) && empty($err_password) ) {
+		
+		
+		$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+		
+		if( ! $conn ) {
+			die('Could not connect: ' . mysql_error());
+		}
+		
+		
+		$username = mysqli_real_escape_string($conn, $username);
+                //$password = mysqli_real_escape_string($conn, $password);
+                $email    = mysqli_real_escape_string($conn, $email);
+		
+		
+		$sql = "SELECT password FROM accounts " .
+		       "WHERE BINARY username='{$username}' OR email='{$email}'";
+		
+		mysql_select_db('TerpSecure');
+		
+		$retval = mysql_query( $sql, $conn );
+		if( ! $retval )
+		{
+			die('Could not retrieve data: ' . mysql_error());
+		}
+		
+		
+		//Validate if a) username or email provided exists, and b) if passwords match
+		$count = 0;
+		while( $row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+			$count++;
+			
+			if( $row['password'] != $password ) {
+				$err_password = "Either your username/email or password is incorrect";
+			}
+		}
+		
+		//If there was no such username or email in the database
+		if( $count == 0 ) {
+			 $err_password = "Either your username/email or password is incorrect";
+		}
+		//If there is more than one result (this should never happen)
+		else if( $count > 1 ) {
+			echo "<h1> Oops, we did something wrong! </h1>" .
+			     "Unforunately, we are unable to log you in due to bad information in our database. <br>";
+		}
+		else{
+			
+			//TODO !!!!!!!!!!!!!!!!!!!!!! USER IS NOW LOGGED IN
+		}
+		
+		mysql_close($conn);
+	}
+}
+
+
+
+function cleanInput($data){
+	return htmlspecialchars( stripslashes( trim( $data )));
+}
+?>
+
+
+
+	
+    <div class="container">
+    <form class="form-signin" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+      <h2 class="form-signin-heading"> Login </h2>
+
+	<input type="text" class="form-control" name="usernameOrEmail" placeholder="Username or Email Address" value="<?php echo $usernameOrEmail; ?>" required autofocus="" />
+	<span class="form-error"> <?php echo $err_usernameOrEmail; ?> </span>
+	<input type="password" class="form-control" name="password" placeholder="Password" value="<?php echo $password; ?>" required />
+	<span class="form-error"> <?php echo $err_password; ?> </span>
+<!--
+	<label class="checkbox">
+		<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
+	</label>
+-->
+	
+	<button name="login" class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
+    </form>
+  </div>
+
+
+</body>
+</html>

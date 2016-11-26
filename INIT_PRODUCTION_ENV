@@ -3,19 +3,22 @@
 # Sets up the production (release) environment
 
 if [ "$#" -gt 0 ]
-then 
+then
 if [ "$1" = "--help" ]
 then
-	echo "Sets up the production (release) environment."
+	echo "Sets up the production (release) environment. This includes copying "
+	echo "the files from the www folder in the current working directory to "
+	echo "the directory which the apache2 server is configured to serve files "
+	echo "from."
 	echo ""
 	echo "		--purge-old	Delete all files currently in the root web "
-	echo "				  directory before copying over the files from "
-	echo "				  the local git repository"
+	echo "				  directory before copying over the files "
+	echo "				  from the local git repository"
 	echo "		--help		Display this help text and exits"
 	echo ""
 	exit 0
 
-elif [ "$#" -gt 0 ] && [ "$1" = "--purge-old" ]
+elif [ "$1" = "--purge-old" ]
 then
 	sudo rm -r /var/www/*
 else
@@ -29,8 +32,6 @@ fi
 sudo cp -R -v www /var/
 
 
-# Set web server root directory path
-#TODO set server web file directory path to /var/www
 
-
-#TODO other configs??
+# Import the MySQL database
+#TODO
