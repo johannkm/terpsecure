@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +32,12 @@
 	  </div>
 	</nav>
 </div>
+-->
+
+
+<?php
+require '__header.php';
+?>
 
 <div class="container">
 	<div class="jumbotron">
