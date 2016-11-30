@@ -52,19 +52,38 @@
     </head>
     <body>
 
-        <h3 align="center">Test your password security</h3>
-        <p align="center">Enter your password into the box, and see how secure your password is, and what you can do to improve it</p>
-        
+
        
+
+        <div class="jumbotron">
+            <div class= "container">
+                <h3 align="center"> Test your password security </h3>
+                <p style="font-size: 15px" align="center">Powered by howsecureismypassword.com's jquery plugin</p>
+                <p>Simply type in your password into the box below and see how long it takes to crack.
+                The website also provide feedback on the weaknesses in your password and what you can 
+                do to improve it</p>
+
+
+                <p> Some tips for a good password:</p>
+                <ul>
+                    <li> use a variety of lettters, numbers, and special characters</li>
+                    <li> Make sure your password is at least eight characters long</li>
+                    <li> Avoid using passwords that are single words</li>
+                </ul>
+
+                
+                </div>
+        </div>
+    
+
+
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1"></span>
             <input type="password" id="password-1" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
         </div>
-        
 
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
         <script src="js/hsimp.jquery.min.js"></script>
         <script>
             jQuery(function ($) {
