@@ -1,4 +1,4 @@
-<?php require "../__header.php"; ?>
+<?php require $_SERVER["DOCUMENT_ROOT"] . "/__header.php"; ?>
 
 
 

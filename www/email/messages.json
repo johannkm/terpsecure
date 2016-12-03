@@ -10,7 +10,7 @@
         "_id": "12h124124g523hkjh2232h24",
         "sender": "Bill Bob",
         "subject": "Test",
-        "content": "This is another test.",
+        "content": "<h1> Header </h1> This is another test.",
         "read": true
     }]
 }
