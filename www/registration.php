@@ -155,9 +155,9 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 		
 		$conn = mysql_connect($dbhost, $dbuser, $dbpass);
 		
-		$username = mysqli_real_escape_string($conn, $username);
-		$password = mysqli_real_escape_string($conn, $password);
-		$email    = mysqli_real_escape_string($conn, $email);
+		$username = mysql_real_escape_string($conn, $username);
+		$password = mysql_real_escape_string($conn, $password);
+		$email    = mysql_real_escape_string($conn, $email);
 		
 		
 		if(! $conn )
