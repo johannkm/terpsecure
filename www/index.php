@@ -20,8 +20,8 @@
 	    </div>
 	    <ul class="nav navbar-nav">
 	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="/about.html">About</a></li>
-	      <li><a href="/email/email.html">Email</a></li>
+	      <li><a href="/about.php">About</a></li>
+	      <li><a href="/email/email.php">Email</a></li>
 	      <li><a href="#">Hacks</a></li>
 	    </ul>
 		
@@ -49,7 +49,7 @@ require '__header.php';
 		    <div class="row">
 
             		<div class="col-md-4">
-                		<a class="thumbnail" href="Password Strength.html">
+                		<a class="thumbnail" href="Password Strength.php">
                     			<h2>Password Strength</h2>
                 		</a>
             		</div>

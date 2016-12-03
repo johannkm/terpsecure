@@ -1,5 +1,8 @@
-<!doctype html>
-<html>
+<?php require "__session_base.php"; ?>
+
+
+<!DOCTYPE html>
+<html lan="en">
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -59,14 +62,14 @@
             <div class= "container">
                 <h3 align="center"> Test your password security </h3>
                 <p style="font-size: 15px" align="center">Powered by howsecureismypassword.com's jquery plugin</p>
-                <p>Simply type in your password into the box below and see how long it takes to crack.
+                <p> Simply type in your password into the box below and see how long it takes to crack.
                 The website also provide feedback on the weaknesses in your password and what you can 
-                do to improve it</p>
+                do to improve it. </p>
 
 
                 <p> Some tips for a good password:</p>
                 <ul>
-                    <li> use a variety of lettters, numbers, and special characters</li>
+                    <li> Use a variety of lettters, numbers, and special characters</li>
                     <li> Make sure your password is at least eight characters long</li>
                     <li> Avoid using passwords that are single words</li>
                 </ul>
@@ -83,6 +86,24 @@
         </div>
 
 
+
+
+
+	<div class="wrapper">
+		&nbsp;
+		<br>
+		&nbsp;
+		<br>
+	</div>
+
+	<div class="wrapper">
+	<div class="container">
+		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
+	</div>
+	</div>
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script src="js/hsimp.jquery.min.js"></script>
         <script>
@@ -95,5 +116,6 @@
                 });
             });
         </script>
+
     </body>
 </html>

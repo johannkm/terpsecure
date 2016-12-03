@@ -1,14 +1,15 @@
+<?php require "__session_base.php"; ?>
+
+
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Register</title>
-  
-  
-  <link rel="stylesheet prefetch" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-  
-  <link rel="stylesheet" href="css/signin.css">
-  
+	<meta charset="UTF-8">
+	<title> Register for TerpSecure </title>
+	
+	<link rel="stylesheet prefetch" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="css/signin.css">
 </head>
 
 <body>
@@ -201,6 +202,14 @@ function cleanInput($data){
 	<button name="add" class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
     </form>
   </div>
+
+
+
+	<div class="wrapper">
+	<div class="container">
+		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
+	</div>
+	</div>
 
 
 </body>

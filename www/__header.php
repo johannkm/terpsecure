@@ -1,3 +1,6 @@
+<?php require "__session_base.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +21,27 @@
               <a class="navbar-brand" href="/">TerpSecure</a>
             </div>
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="/index.php">Home</a></li>
               <li><a href="/about.php">About</a></li>
-              <li><a href="/email/email.html">Email</a></li>
+              <li><a href="/email/email.php">Email</a></li>
               <li><a href="#">Hacks</a></li>
             </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-                        <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+			<li><a href="registration.php"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
+			
+			<?php
+			if( ! $_SESSION["loggedIn"] ){
+			?>
+			 	<li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login </a></li>
+			<?php
+			}
+			else {
+			?>
+				<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout </a></li>
+			<?php
+			}
+			?>
                 </ul>
           </div>
         </nav>

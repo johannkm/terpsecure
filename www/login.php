@@ -1,9 +1,11 @@
+<?php require "__session_base.php" ?>
+
+
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Log in to TerpSecure</title>
-	
+	<meta charset="UTF-8">
+	<title>Log in to TerpSecure</title>
 	
 	<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
 	
@@ -90,6 +92,14 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		}
 		
 		
+		
+		
+		
+		
+		//TODO THE BELOW IS A BAD WAY OF DOING IT, CHANGE CHECK RESULTS TO BE BETTER
+		
+		
+		
 		//Validate if a) username or email provided exists, and b) if passwords match
 		$count = 0;
 		while( $row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
@@ -109,8 +119,11 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 			echo "<h1> Oops, we did something wrong! </h1>" .
 			     "Unforunately, we are unable to log you in due to bad information in our database. <br>";
 		}
+		//Else the user is now logged in
 		else{
+			$_SESSION["loggedIn"] = True;
 			
+			//TODO set other session variables?????
 			//TODO !!!!!!!!!!!!!!!!!!!!!! USER IS NOW LOGGED IN
 		}
 		
@@ -127,8 +140,8 @@ function cleanInput($data){
 
 
 
-	
-    <div class="container">
+
+    <div class="wrapper">
     <form class="form-signin" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
       <h2 class="form-signin-heading"> Login </h2>
 
@@ -141,11 +154,18 @@ function cleanInput($data){
 		<input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" /> Remember me
 	</label>
 -->
-	
+
 	<button name="login" class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
     </form>
   </div>
 
+
+
+	<div class="wrapper">
+	<div class="container">
+		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
+	</div>
+	</div>
 
 </body>
 </html>

@@ -4,13 +4,13 @@
         "sender": "Johann Miller",
         "subject": "Hacking",
         "content": "This is a test.",
-        "read": false,
+        "read": false
     },
     {
         "_id": "12h124124g523hkjh2232h24",
         "sender": "Bill Bob",
         "subject": "Test",
         "content": "This is another test.",
-        "read": true,
+        "read": true
     }]
 }
