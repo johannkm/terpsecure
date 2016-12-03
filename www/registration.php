@@ -155,9 +155,11 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 		
 		$conn = mysql_connect($dbhost, $dbuser, $dbpass);
 		
-		$username = mysql_real_escape_string($conn, $username);
-		$password = mysql_real_escape_string($conn, $password);
-		$email    = mysql_real_escape_string($conn, $email);
+		
+		//TODO		FIX THIS, OTHERWISE SQL INJECTION IS POSSIBLE
+		//$username = mysql_real_escape_string($conn, $username);
+		//$password = mysql_real_escape_string($conn, $password);
+		//$email    = mysql_real_escape_string($conn, $email);
 		
 		
 		if(! $conn )
