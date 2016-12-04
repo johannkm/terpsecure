@@ -160,7 +160,10 @@ function cleanInput($data){
 -->
 
 	<button name="login" class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
+	<br><br>
+	<p>Not a user? Click <a herf="regestriation.php">here</a> to register</p>
     </form>
+
   </div>
 
 
