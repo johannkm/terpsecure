@@ -1,10 +1,5 @@
-<?php require "__session_base.php"; ?>
+<?php require "__header.php"; ?>
 
-
-<!DOCTYPE html>
-<html lan="en">
-   
-    <body>
 
 
        
