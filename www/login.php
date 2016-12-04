@@ -167,6 +167,7 @@ function cleanInput($data){
 	<p> Not a user? Click <a href="registration.php">here</a> to register </p>
 
     </form>
+
   </div>
 
 

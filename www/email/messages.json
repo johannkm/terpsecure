@@ -1,16 +1,22 @@
 {
-    "messages": [{
-        "_id": "57cf75cea73e494d8675ef91",
-        "sender": "Johann Miller",
-        "subject": "Hacking",
-        "content": "This is a test.",
+    "messages": [
+      {
+        "sender":"info@turtlesecure.com",
+        "subject":"ALERT! Account compromised",
+        "content":"Dear User,<br><br>Your security details have been compromised in a recent data breach. Please re-enter your Terpsecure account information to restore your account.<br><br><a href= “LINK_TO_FAKE_REGISTRATION_HERE”” > Update your account information here </a><br><br>Sincerely,<br><br>Terpsecure team",
+        "read":false
+      },
+      {
+        "sender":"info@terpsecurecom",
+        "subject":"Terms of Service",
+        "content":"Dear User,<br><br>We’ve recently updated our terms of service to include some of the new features and services we’re offering. Please take some time to read and understand the new terms <a href=”TOS_LINK”>here</a>. We’ve also summarized the changes below to help you better understand what is new:<ul><li>Extended data rights to certain entities</li><li>Added a clause allowing liability to cover a greater range of occurrences</li><li>Addressed certain individual mistakes</li></ul>We would like to remind you that despite these changes TerpSecure’s mission has not changed, and we hope you continue with our services as a valued user.<br><br>-The TerpSecure Team",
+        "read":false
+      },
+      {
+        "sender": "info@terpsecure.com",
+        "subject": "About Us",
+        "content": "We’re a group of students from the University of Maryland. As members of the Advanced Cybersecurity Experience for Students (ACES) honors college, we believe technological literacy enables users to make smart decisions and protect themselves from malicious actors, and we're committed to bringing education to our communities. Our aim in creating TerpSecure was to make a platform which is accessible for all users regardless of prior knowledge of cybersecurity. We understand that computers can sometimes be an intimidating topic, and we hope that TerpSecure makes learning fun, interesting, and easy. <br><br>We decided to create TerpSecure as our project for the Northrop Grumman 2016 Cyber Engineering competition. They provided us with a Raspberry Pi, funding, and guidance—we coded the rest! The project gave us a fantastic opportunity to develop new skills and explore different areas of development while also creating a useful product. We really enjoyed the development experience, and we hope users will enjoy exploring our finished project.",
         "read": false
-    },
-    {
-        "_id": "12h124124g523hkjh2232h24",
-        "sender": "Bill Bob",
-        "subject": "Test",
-        "content": "<h1> Header </h1> This is another test.",
-        "read": true
-    }]
+      }
+  ]
 }
