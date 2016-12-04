@@ -68,10 +68,10 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 	if( empty($err_usernameOrEmail) && empty($err_password) ) {
 		
 		
-		$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "TerpSecure");
 		
 		if( ! $conn ) {
-			die('Could not connect: ' . mysql_error());
+			die('Could not connect: ' . mysqli_error($conn));
 		}
 		
 		
@@ -81,14 +81,14 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		
 		
 		$sql = "SELECT password FROM accounts " .
-		       "WHERE BINARY username='{$username}' OR email='{$email}'";
+		       "WHERE username='{$username}' OR email='{$email}'";
 		
-		mysql_select_db('TerpSecure');
+//RMV		mysql_select_db('TerpSecure');
 		
-		$retval = mysql_query( $sql, $conn );
+		$retval = mysqli_query( $conn, $sql );
 		if( ! $retval )
 		{
-			die('Could not retrieve data: ' . mysql_error());
+			die('Could not retrieve data: ' . mysqli_error($conn));
 		}
 		
 		
@@ -96,19 +96,21 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		
 		
 		
-		//TODO THE BELOW IS A BAD WAY OF DOING IT, CHANGE CHECK RESULTS TO BE BETTER
+		//TODO		THE BELOW MIGHT BE A BAD WAY OF DOING IT, CHANGE CHECK RESULTS TO BE BETTER
 		
 		
 		
 		//Validate if a) username or email provided exists, and b) if passwords match
 		$count = 0;
-		while( $row = mysql_fetch_array($retval, MYSQL_ASSOC)) {
+		while( $row = mysqli_fetch_array($retval, MYSQLI_ASSOC)) {
 			$count++;
 			
 			if( $row['password'] != $password ) {
 				$err_password = "Either your username/email or password is incorrect";
 			}
 		}
+		
+		mysqli_free_result($retval);
 		
 		//If there was no such username or email in the database
 		if( $count == 0 ) {
@@ -127,7 +129,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 			//TODO !!!!!!!!!!!!!!!!!!!!!! USER IS NOW LOGGED IN
 		}
 		
-		mysql_close($conn);
+		mysqli_close($conn);
 	}
 }
 
