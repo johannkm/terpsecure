@@ -57,13 +57,13 @@ var setMessages = (m) => {
 
 }
 
-// $.get('emailData.php?user=messages', function(data){
-//   var messJson = data
-//   console.log(data)
-//   var parsed = $.parseJSON(messJson)
-//   setMessages(parsed.messages)
-// })
-
-
-var parsed = $.parseJSON(messJson)
+$.get('emailData.php?user=messages', function(data){
+  var messJson = data
+  console.log(data)
+  var parsed = $.parseJSON(messJson)
   setMessages(parsed.messages)
+})
+
+//
+// var parsed = $.parseJSON(messJson)
+//   setMessages(parsed.messages)
