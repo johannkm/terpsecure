@@ -1,4 +1,4 @@
-// var messJson = '{  "messages": [{        "_id": "57cf75cea73e494d8675ef91",        "sender": "Johann Miller",      "subject":"Hacking",        "content": "This is a test.",        "read": false    },    {        "_id": "12h124124g523hkjh2232h24",        "sender": "Bill Bob",        "subject": "Test",        "content": "This is another test.",        "read": false    }, {        "_id": "57cf75cea73d494d8675ef91",        "sender": "Evil Corp.",      "subject":"Malicous Content",        "content": "This is a test. Don\'t click <a href=\'google.com\'>Good link!</a>",        "read": true    }]}'
+var messJson = '{  "messages": [{        "_id": "57cf75cea73e494d8675ef91",        "sender": "Johann Miller",      "subject":"Hacking",        "content": "This is a test.",        "read": false    },    {        "_id": "12h124124g523hkjh2232h24",        "sender": "Bill Bob",        "subject": "Test",        "content": "This is another test.",        "read": false    }, {        "_id": "57cf75cea73d494d8675ef91",        "sender": "Evil Corp.",      "subject":"Malicous Content",        "content": "This is a test. Don\'t click <a href=\'google.com\'>Good link!</a>",        "read": true    }]}'
 
 var setMessages = (m) => {
     $("#unread").html(m.length)
@@ -31,7 +31,14 @@ var setMessages = (m) => {
         let data = m
         $('#email' + index).click(function() {
             $('#messDisplay').html(
-              '<li class="list-group-item"><p>'+data[index].content+'</p></li>'
+              '<li class="list-group-item"><p>'+data[index].content+'</p></li>\
+              <br>\
+                <label for="comment">Reply:</label>\
+                <textarea class="form-control" rows="4" id="reply"></textarea>\
+                <button type="button" class="btn btn-primary" onclick="document.getElementById(\'reply\').value = \'\' " id="send">\
+                <span class="glyphicon glyphicon-send" aria-hidden="true"></span> Send\
+                </button>\
+              '
             )
             $('.active').removeClass('active')
             $(this).addClass('active')
@@ -50,10 +57,13 @@ var setMessages = (m) => {
 
 }
 
-$.get('emailData.php?user=messages', function(data){
-  var messJson = data
-  console.log(data)
-  var parsed = $.parseJSON(messJson)
-  setMessages(parsed.messages)
-})
+// $.get('emailData.php?user=messages', function(data){
+//   var messJson = data
+//   console.log(data)
+//   var parsed = $.parseJSON(messJson)
+//   setMessages(parsed.messages)
+// })
 
+
+var parsed = $.parseJSON(messJson)
+  setMessages(parsed.messages)
