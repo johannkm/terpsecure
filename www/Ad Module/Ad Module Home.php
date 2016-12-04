@@ -21,7 +21,7 @@
             <div class= "container">
                 <h3 align="center"> Ad Module </h3>
 		
-                <p style="font-size: 15px" align="center">  Something here??????   </p>
+                <p style="font-size: 15px" align="center">  </p>
                 <p>
 			It’s time to watch your daily cat videos, but before you do, you
 
@@ -40,8 +40,24 @@
     
 
 
+	<div class="wrapper">
+        <div class="container">
+		<div class="row">
+  			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
+				<a href="Ad Module Page 1.html" class="btn btn-lg btn-primary btn-block" role="button"> Click Here to Begin </a>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+        </div>
+        </div>
 
 
+	<div class="wrapper">
+        <div class="container">
+                <a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
+        </div>
+        </div>
 
 
 

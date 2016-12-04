@@ -1,4 +1,4 @@
-<?php require "__session_base.php" ?>
+<?php require "__session_login_pages.php" ?>
 
 
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
 <?php
 if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 {
-	$dbhost = 'localhost';//'localhost:3036';
+	$dbhost = 'localhost';
 	$dbuser = 'root';
 	$dbpass = 'Jessie was here';
 	
@@ -71,9 +71,10 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "TerpSecure");
 		
 		if( ! $conn ) {
-			echo "errno: " . mysqli_connect_errno() . PHP_EOL;
-			echo "error: " . mysqli_connect_error() . PHP_EOL;
-			die('Could not connect: ' . mysqli_error($conn));
+			echo "Error: Unable to connect to MySQL." . PHP_EOL;
+			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+			exit;
 		}
 		
 		
@@ -85,7 +86,6 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		$sql = "SELECT password FROM accounts " .
 		       "WHERE username='{$username}' OR email='{$email}'";
 		
-//RMV		mysql_select_db('TerpSecure');
 		
 		$retval = mysqli_query( $conn, $sql );
 		if( ! $retval )
@@ -160,6 +160,12 @@ function cleanInput($data){
 -->
 
 	<button name="login" class="btn btn-lg btn-primary btn-block" type="submit"> Login </button>
+
+
+	<br>
+	<br>
+	<p> Not a user? Click <a href="registration.php">here</a> to register </p>
+
     </form>
   </div>
 

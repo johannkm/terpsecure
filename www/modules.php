@@ -7,6 +7,22 @@
 
 <?php
 require '__header.php';
+
+
+if( ! $_SESSION["loggedIn"] ){
+	
+	//TODO		HANDLE MORE COMPLICATED ISSUES WITH AUTO REDIRECT
+	
+	$_SESSION["loginRedirection"] = True;
+	
+	echo '<div class="container">' . PHP_EOL;
+	echo '<p> Please log in to continue </p>' . PHP_EOL;
+	echo '</div>' . PHP_EOL;
+	echo "<meta http-equiv='refresh' content='=0;login.php' />";
+}
+
+//Else the user is logged in
+else{
 ?>
 
 
@@ -45,6 +61,9 @@ require '__header.php';
 	</div>
 </div>
 
+<?php
+}
+?>
 
 
 

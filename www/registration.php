@@ -1,4 +1,5 @@
-<?php
+<?php require '__session_login_pages.php';
+/*
 session_start();
 
 $newCurrentPage = htmlspecialchars($_SERVER["PHP_SELF"]);
@@ -8,11 +9,13 @@ if( $newCurrentPage != $_SESSION["currentPage"] ){
 	//TODO		NOT SURE IF THIS IS THE RIGHT OR BEST WAY TO DO THIS CHECK
 	//Do not update 'lastPage' if user came here from login page
 	if( $_SESSION["currentPage"] != "/login.php" ){
+		$_SESSION["oldLastPage"] = $_SESSION["lastPage"];
 		$_SESSION["lastPage"] = $_SESSION["currentPage"];
 	}
 	
 	$_SESSION["currentPage"] = $newCurrentPage;
 }
+*/
 ?>
 
 
@@ -23,8 +26,9 @@ if( $newCurrentPage != $_SESSION["currentPage"] ){
 	<meta charset="UTF-8">
 	<title> Register for TerpSecure </title>
 	
-	<link rel="stylesheet prefetch" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-
+	<!-- <link rel="stylesheet prefetch" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
+	
+	<link rel="stylesheet prefetch" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/signin.css">
 </head>
 
@@ -36,7 +40,7 @@ if( $newCurrentPage != $_SESSION["currentPage"] ){
 <?php
 if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 {
-	$dbhost = 'localhost:3036';
+	$dbhost = 'localhost';
 	$dbuser = 'root';
 	$dbpass = 'Jessie was here';
 	
@@ -153,19 +157,19 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 			&& empty($err_email) && empty($err_email_confirm) ) {
 		
 		
-		$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "TerpSecure");
 		
-		
-		//TODO		FIX THIS, OTHERWISE SQL INJECTION IS POSSIBLE
-		//$username = mysql_real_escape_string($conn, $username);
-		//$password = mysql_real_escape_string($conn, $password);
-		//$email    = mysql_real_escape_string($conn, $email);
-		
-		
-		if(! $conn )
+		if( ! $conn )
 		{
-			die('Could not connect: ' . mysql_error());
+			echo "Error: Unable to connect to MySQL." . PHP_EOL;
+			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+			exit();
 		}
+		
+		$username = mysqli_real_escape_string($conn, $username);
+		$password = mysqli_real_escape_string($conn, $password);
+		$email    = mysqli_real_escape_string($conn, $email);
 		
 		
 		$sql = "INSERT INTO accounts ".
@@ -173,15 +177,23 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 		       "VALUES ".
 		       "('$username','$password','$email')";
 		
-		mysql_select_db('TerpSecure');
 		
-		$retval = mysql_query( $sql, $conn );
+		$retval = mysqli_query( $conn, $sql );
 		if( ! $retval )
 		{
-			die('Could not enter data: ' . mysql_error());
+			//die('Could not enter data: ' . mysqli_error($conn));
+			echo "<h1> Oops, something went wrong! </h1>";
+			echo "<p> We were unable to enter your information into our database. Please try again. </p>";
+		}
+		//The user is now logged in
+		else{
+			$_SESSION["loggedIn"] = True;
+			
+			//Redirect user
+			echo "<meta http-equiv='refresh' content='=2;" . $_SESSION["lastPage"] . "' />";
 		}
 		
-		mysql_close($conn);
+		mysqli_close($conn);
 	}
 }
 
@@ -225,6 +237,9 @@ function cleanInput($data){
 
 	<div class="wrapper">
 	<div class="container">
+<?php
+//TODO	HANDLE BACK BUTTON WHEN LOGIN REDIRECTION OCCURRED
+?>
 		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
 	</div>
 	</div>
