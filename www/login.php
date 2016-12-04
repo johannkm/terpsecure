@@ -19,7 +19,7 @@
 <?php
 if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 {
-	$dbhost = 'localhost:3036';
+	$dbhost = 'localhost';//'localhost:3036';
 	$dbuser = 'root';
 	$dbpass = 'Jessie was here';
 	
@@ -71,6 +71,8 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "TerpSecure");
 		
 		if( ! $conn ) {
+			echo "errno: " . mysqli_connect_errno() . PHP_EOL;
+			echo "error: " . mysqli_connect_error() . PHP_EOL;
 			die('Could not connect: ' . mysqli_error($conn));
 		}
 		
