@@ -19,9 +19,9 @@
 <?php
 if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 {
-	$dbhost = 'localhost';
-	$dbuser = 'root';
-	$dbpass = 'Jessie was here';
+//	$dbhost = 'localhost';
+//	$dbuser = 'root';
+//	$dbpass = 'Jessie was here';
 	
 	$err_usernameOrEmail = "";
 	$err_password = "";
@@ -68,7 +68,7 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 	if( empty($err_usernameOrEmail) && empty($err_password) ) {
 		
 		
-		$conn = mysqli_connect($dbhost, $dbuser, $dbpass, "TerpSecure");
+		$conn = mysqli_connect("localhost", "root", "Jessie was here", "TerpSecure");
 		
 		if( ! $conn ) {
 			echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -110,9 +110,16 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 			if( $row['password'] != $password ) {
 				$err_password = "Either your username/email or password is incorrect";
 			}
+			else{
+				$username = $row['username'];
+				$email = $row['email'];
+			}
 		}
 		
+		
 		mysqli_free_result($retval);
+		mysqli_close($conn);
+		
 		
 		//If there was no such username or email in the database
 		if( $count == 0 ) {
@@ -126,12 +133,13 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"]) )
 		//Else the user is now logged in
 		else{
 			$_SESSION["loggedIn"] = True;
+			$_SESSION["username"] = $username;
+			$_SESSION["email"] = $email;
 			
-			//TODO set other session variables?????
-			//TODO !!!!!!!!!!!!!!!!!!!!!! USER IS NOW LOGGED IN
+			//Redirect user
+			echo "<meta http-equiv='refresh' content='=0;" . $_SESSION["lastPage"] . "' />";
 		}
 		
-		mysqli_close($conn);
 	}
 }
 
@@ -173,9 +181,17 @@ function cleanInput($data){
 
 
 	<div class="wrapper">
-	<div class="container">
-		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
-	</div>
+	    <div class="container">
+
+		<a href="<?php
+			if( $_SESSION['loginRedirection'] ){
+				echo $_SESSION['oldLastPage'];
+			}
+			else{
+				echo $_SESSION['lastPage'];
+			}
+			?>" class="btn btn-lg btn-info" role="button"> Back </a>
+	    </div>
 	</div>
 
 </body>

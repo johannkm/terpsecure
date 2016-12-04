@@ -167,15 +167,15 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 			exit();
 		}
 		
-		$username = mysqli_real_escape_string($conn, $username);
-		$password = mysqli_real_escape_string($conn, $password);
-		$email    = mysqli_real_escape_string($conn, $email);
+		$_username = mysqli_real_escape_string($conn, $username);
+		$_password = mysqli_real_escape_string($conn, $password);
+		$_email    = mysqli_real_escape_string($conn, $email);
 		
 		
 		$sql = "INSERT INTO accounts ".
 		       "(username, password, email) ".
 		       "VALUES ".
-		       "('$username','$password','$email')";
+		       "('$_username','$_password','$_email')";
 		
 		
 		$retval = mysqli_query( $conn, $sql );
@@ -188,9 +188,11 @@ if( $_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add"]) )
 		//The user is now logged in
 		else{
 			$_SESSION["loggedIn"] = True;
+			$_SESSION["username"] = $username;
+			$_SESSION["email"] = $email;
 			
 			//Redirect user
-			echo "<meta http-equiv='refresh' content='=2;" . $_SESSION["lastPage"] . "' />";
+			echo "<meta http-equiv='refresh' content='=0;" . $_SESSION["lastPage"] . "' />";
 		}
 		
 		mysqli_close($conn);
@@ -236,12 +238,18 @@ function cleanInput($data){
 
 
 	<div class="wrapper">
-	<div class="container">
-<?php
-//TODO	HANDLE BACK BUTTON WHEN LOGIN REDIRECTION OCCURRED
-?>
-		<a href="<?php echo $_SESSION['lastPage']; ?>" class="btn btn-lg btn-info" role="button"> Back </a>
-	</div>
+	    <div class="container">
+
+
+		<a href="<?php
+			if( $_SESSION['loginRedirection'] ){
+				echo $_SESSION['oldLastPage'];
+			}
+			else{
+				echo $_SESSION['lastPage'];
+			}
+			?>" class="btn btn-lg btn-info" role="button"> Back </a>
+	    </div>
 	</div>
 
 

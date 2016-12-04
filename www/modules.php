@@ -11,7 +11,7 @@ require '__header.php';
 
 if( ! $_SESSION["loggedIn"] ){
 	
-	//TODO		HANDLE MORE COMPLICATED ISSUES WITH AUTO REDIRECT
+	//TODO		ARE THERE?????????? HANDLE MORE COMPLICATED ISSUES WITH AUTO REDIRECT??????
 	
 	$_SESSION["loginRedirection"] = True;
 	
