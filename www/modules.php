@@ -49,7 +49,7 @@ else{
             		
 			<div class="col-md-4">
                 		<a class="thumbnail" href="Security Questions Module Part 1.php">
-					<h2>Secuirty Questions</h2>
+					<h2>Security Questions</h2>
                 		</a>
             		</div>
           		

@@ -80,21 +80,22 @@
 	<div class="container"> </div>
 	</div>
 
+<div class="wrapper">
+		&nbsp;
+		<br>
+		&nbsp;
+		<br>
+	</div>
+
+	<div class="wrapper">
+	<div class="container">
+		<a href="modules.php" class="btn btn-lg btn-info" role="button"> Back </a>
+	</div>
+	</div>
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="../Downloads/terpsecure-master/terpsecure-master/www/js/hsimp.jquery.min.js"></script>
+        <script src="js/jquery-1.11.3.min.js"></script>
         <script src="js/bootstrap.js"></script>
-<script>
-            jQuery(function ($) {
-                "use strict";
-                $("#password-1, #password-2").hsimp({
-                    calculationsPerSecond: 10e9, // 10 billion
-                    good: 31557600e9, // 1 billion years
-                    ok: 31557600e2  // 100 years
-                });
-            });
-        </script>
 
     </body>
 </html>
