@@ -132,7 +132,7 @@
 </section>
 <section>
 <div class="container">
-  <p><strong>NOTE: The above information was obtained from the <a href="http://www.videolan.org/legal.html">VideoLAN Legal terms page.</a></strong></p>
+  <p><strong> <a href="Ad Module Page 3.html">Click here to continue the download process.</a></strong></p>
   <div class="row"> </div>
   </div>
 </section>
