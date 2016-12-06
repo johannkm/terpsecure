@@ -67,7 +67,7 @@ else{
 											<div class="thumbnail">
 
 													<div class="caption">
-															<h3>Secuirty Questions</h3>
+															<h3>Security Questions</h3>
 															<br>
 															<p>
 																	<a href="Security Questions Module Part 1.php" class="btn btn-primary">Enter Module</a>
@@ -87,7 +87,7 @@ else{
 
 
 
-
+<!--
 <div class="container">
 	<div class="jumbotron">
 		<h1>Stay safe on the web!</h1>
@@ -119,9 +119,10 @@ else{
 		    </div>
 		</div>
 
-<!-- /.container -->
 	</div>
 </div>
+
+-->
 
 <?php
 }
