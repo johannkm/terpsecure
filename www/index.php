@@ -12,37 +12,55 @@ require '__header.php';
 
 <div class="container">
 	<div class="jumbotron">
-		<h1>Stay safe on the web!</h1>
-		
-		<p>Click any module to begin.</p>
-		
-		<div class="container">
-		    <div class="row">
+			<h1>Stay safe on the web!</h1>
+			<p>Click any module to begin.</p>
 
-            		<div class="col-md-4">
-                		<a class="thumbnail" href="Password Strength.php">
-                    			<h2>Password Strength</h2>
-                		</a>
-            		</div>
-            		
-			<div class="col-md-4">
-                		<a class="thumbnail" href="Ad Module/Ad Module Home.php">
-					<h2>Online Advertisements</h2>
-                		</a>
-			</div>
-            		
-			<div class="col-md-4">
-                		<a class="thumbnail" href="Security Questions Module Part 1.php">
-					<h2>Secuirty Questions</h2>
-                		</a>
-            		</div>
-          		
-			
-		    </div>
-		</div>
+			<!-- Page Features -->
+							<div class="row text-center">
 
-<!-- /.container -->
-	</div>
+									<div class="col-md-3 col-sm-6 hero-feature">
+											<div class="thumbnail">
+
+													<div class="caption">
+															<h3>Password Strength</h3>
+															<br>
+															<p>
+																	<a href="Password Strength.php" class="btn btn-primary">Enter Module</a>
+															</p>
+													</div>
+											</div>
+									</div>
+
+									<div class="col-md-3 col-sm-6 hero-feature">
+											<div class="thumbnail">
+
+													<div class="caption">
+															<h3>Online Advertisements</h3>
+															<br>
+															<p>
+																	<a href="Ad Module/Ad Module Home.php" class="btn btn-primary">Enter Module</a>
+															</p>
+													</div>
+											</div>
+									</div>
+
+									<div class="col-md-3 col-sm-6 hero-feature">
+											<div class="thumbnail">
+
+													<div class="caption">
+															<h3>Secuirty Questions</h3>
+															<br>
+															<p>
+																	<a href="Security Questions Module Part 1.php" class="btn btn-primary">Enter Module</a>
+															</p>
+													</div>
+											</div>
+									</div>
+
+							</div>
+							<!-- /.row -->
+
+</div>
 </div>
 
 
