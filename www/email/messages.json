@@ -3,7 +3,7 @@
       {
         "sender":"info@turtlesecure.com",
         "subject":"ALERT! Account compromised",
-        "content":"Dear User,<br><br>Your security details have been compromised in a recent data breach. Please re-enter your Terpsecure account information to restore your account.<br><br><a href= “/fake_registration.html” > Update your account information here </a><br><br>Sincerely,<br><br>Terpsecure team",
+        "content":"Dear User,<br><br>Your security details have been compromised in a recent data breach. Please re-enter your Terpsecure account information to restore your account.<br><br><a href= /fake_registration.html > Update your account information here </a><br><br>Sincerely,<br><br>Terpsecure team",
         "read":false
       },
       {
