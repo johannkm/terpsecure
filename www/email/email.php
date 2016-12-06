@@ -1,5 +1,22 @@
-<?php require $_SERVER["DOCUMENT_ROOT"] . "/__header.php"; ?>
+<?php
+require $_SERVER["DOCUMENT_ROOT"] . "/__header.php";
 
+
+if( ! $_SESSION["loggedIn"] ){
+
+        //TODO          ARE THERE?????????? HANDLE MORE COMPLICATED ISSUES WITH AUTO REDIRECT??????
+
+        $_SESSION["loginRedirection"] = True;
+
+        echo '<div class="container">' . PHP_EOL;
+        echo '<p> Please log in to continue </p>' . PHP_EOL;
+        echo '</div>' . PHP_EOL;
+        echo "<meta http-equiv='refresh' content='=0;/login.php' />";
+}
+
+//Else the user is logged in
+else{
+?>
 
 
 	<div class="container">
@@ -21,6 +38,11 @@
 
 	<script src="email.js"></script>
 	<link rel="stylesheet" type="text/css" href="emailstyle.css">
+
+<?php
+}
+?>
+
 
 </body>
 
