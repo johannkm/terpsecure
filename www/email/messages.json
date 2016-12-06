@@ -3,13 +3,13 @@
       {
         "sender":"info@turtlesecure.com",
         "subject":"ALERT! Account compromised",
-        "content":"Dear User,<br><br>Your security details have been compromised in a recent data breach. Please re-enter your Terpsecure account information to restore your account.<br><br><a href= “/fake_registration.html” > Update your account information here </a><br><br>Sincerely,<br><br>Terpsecure team",
+        "content":"Dear User,<br><br>Your security details have been compromised in a recent data breach. Please re-enter your Terpsecure account information to restore your account.<br><br><a href= /fake_registration.html  target=\"_blank\"> Update your account information here </a><br><br>Sincerely,<br><br>Terpsecure team",
         "read":false
       },
       {
         "sender":"info@terpsecurecom",
         "subject":"Terms of Service",
-        "content":"Dear User,<br><br>We’ve recently updated our terms of service to include some of the new features and services we’re offering. Please take some time to read and understand the new terms <a href= “/terms_of_service.html” > Review the new terms and conditions here </a>. We’ve also summarized the changes below to help you better understand what is new:<ul><li>Extended data rights to certain entities</li><li>Added a clause allowing liability to cover a greater range of occurrences</li><li>Addressed certain individual mistakes</li></ul>We would like to remind you that despite these changes TerpSecure’s mission has not changed, and we hope you continue with our services as a valued user.<br><br>-The TerpSecure Team",
+        "content":"Dear User,<br><br>We’ve recently updated our terms of service to include some of the new features and services we’re offering. Please take some time to read and understand the new terms <a href= /terms_of_service.html target=\"_blank\"> Review the new terms and conditions here </a>. We’ve also summarized the changes below to help you better understand what is new:<ul><li>Extended data rights to certain entities</li><li>Added a clause allowing liability to cover a greater range of occurrences</li><li>Addressed certain individual mistakes</li></ul>We would like to remind you that despite these changes TerpSecure’s mission has not changed, and we hope you continue with our services as a valued user.<br><br>-The TerpSecure Team",
         "read":false
       },
       {
