@@ -83,7 +83,7 @@ else{
 				
 				<div class="col-md-3 col-sm-6 hero-feature">
 					<div class="thumbnail">
-					<div> class="caption">
+					<div class="caption">
 						
 						<h3> Account Hackers </h3>
 						<br>
