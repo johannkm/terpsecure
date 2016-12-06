@@ -35,33 +35,33 @@ else{
 			<p>Click any module to begin.</p>
 
 			<!-- Page Features -->
-							<div class="row text-center">
+				<div class="row text-center">
+
+						<div class="col-md-3 col-sm-6 hero-feature">
+								<div class="thumbnail">
+
+									<div class="caption">
+										<h3>Password Strength</h3>
+										<br>
+										<p>
+										<a href="Password Strength.php" class="btn btn-primary">Enter Module</a>
+										</p>
+									</div>
+								</div>
+						</div>
 
 									<div class="col-md-3 col-sm-6 hero-feature">
 											<div class="thumbnail">
 
-													<div class="caption">
-															<h3>Password Strength</h3>
-															<br>
-															<p>
-																	<a href="Password Strength.php" class="btn btn-primary">Enter Module</a>
-															</p>
-													</div>
-											</div>
+										<div class="caption">
+											<h3>Online Advertisements</h3>
+											<br>
+											<p>
+												<a href="Ad Module/Ad Module Home.php" class="btn btn-primary">Enter Module</a>
+											</p>
+										</div>
 									</div>
-
-									<div class="col-md-3 col-sm-6 hero-feature">
-											<div class="thumbnail">
-
-													<div class="caption">
-															<h3>Online Advertisements</h3>
-															<br>
-															<p>
-																	<a href="Ad Module/Ad Module Home.php" class="btn btn-primary">Enter Module</a>
-															</p>
-													</div>
-											</div>
-									</div>
+								</div>
 
 									<div class="col-md-3 col-sm-6 hero-feature">
 											<div class="thumbnail">
@@ -71,15 +71,45 @@ else{
 															<br>
 															<p>
 																	<a href="Security Questions Module Part 1.php" class="btn btn-primary">Enter Module</a>
-															</p>
-													</div>
-											</div>
+												</div>
 									</div>
-
 							</div>
-							<!-- /.row -->
+					</div>
 
-</div>
+			</div>
+			<!-- /.row -->
+			
+			<div class="row text-center">
+				
+				<div class="col-md-3 col-sm-6 hero-feature">
+					<div class="thumbnail">
+					<div> class="caption">
+						
+						<h3> Account Hackers </h3>
+						<br>
+						<p>
+							<a href="fake_registration_notification.php" class="btn btn-primary"> Enter Module </a>
+						</p>
+						
+					</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3 col-sm-6 hero-feature">
+					<div class="thumbnail">
+					<div class="caption">
+						
+						<h3> Terms of Service </h3>
+						<br>
+						<p>
+							<a href="terms_of_service_notification.php" class="btn btn-primary"> Enter Module </a>
+						</p>
+					</div>
+					</div>
+				</div>
+			</div>
+
+	</div>
 </div>
 
 
